@@ -3,10 +3,11 @@ package com.rns.util;
 public class NumericUtil {
 	
 	public static float getFloatValue(String value){
+
+		//Returns -1.0f if the String value cannot be parsed
+		float returnValue = -1.0f;
 		
-		float returnValue = 1.0f;
-		
-		if ( ! isEmptyOrNull(value) ){
+		if ( ! isEmptyOrNull(value) && isNumeric(value) ){
 			try {
 				returnValue = Float.parseFloat(value);
 			} catch ( NumberFormatException nfe){
