@@ -43,10 +43,11 @@ public class BMIManager {
 				}catch (SQLException e){
 					e.printStackTrace();
 				}
+				logger.info("EXIT readStrings()");
 				return strings;
 			}
 			else{
-				logger.info("Strings is empty");
+				logger.warn("Strings is empty");
 				return strings;
 			}
 		}

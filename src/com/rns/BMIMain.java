@@ -3,7 +3,6 @@ package com.rns;
 import com.rns.dal.BMIDAL;
 import com.rns.entity.Person;
 import com.rns.manager.BMIManager;
-import java.sql.*;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 
