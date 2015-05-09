@@ -1,4 +1,4 @@
-log4j.rootLogger=warn, MAIN
+log4j.rootLogger=INFO, MAIN
 
 # Categories
 log4j.category.com.radian6=DEBUG
@@ -9,11 +9,11 @@ log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
 # Pattern to output the caller's file name and line number.
 log4j.appender.stdout.layout.ConversionPattern=%d [%t] %p %c - %m%n
 
-log4j.appender.MAIN=org.apache.log4j.RollingFileAppender
-log4j.appender.MAIN.File=/opt/sphere/logs/rns.log
+log4j.appender.MAIN=org.apache.log4j.ConsoleAppender
+#log4j.appender.MAIN.File=/opt/sphere/logs/rns.log
 
-log4j.appender.MAIN.MaxFileSize=1000000KB
-log4j.appender.MAIN.MaxBackupIndex=100
+#log4j.appender.MAIN.MaxFileSize=1000000KB
+#log4j.appender.MAIN.MaxBackupIndex=100
 
 log4j.appender.MAIN.layout=org.apache.log4j.PatternLayout
 log4j.appender.MAIN.layout.ConversionPattern=%d [%t] %p %c - %m%n
