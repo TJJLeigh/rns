@@ -1,5 +1,3 @@
 ## Java Introduction Course for Rothesay Netherwood School.
 
-The examples include here are to help students unlease the power of java. The current project is to calculate a persons BMI, and what would happen if that user lived on Jupiter / Venus.
-
-Added a second project, a shipping container problem.
+This is Jack Leigh's version of the BMI application the RNS coding crew is currently making

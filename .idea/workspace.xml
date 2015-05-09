@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44056370-d03e-42c6-b962-104f2c06e88a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rns/dal/BMIDAL.java" afterPath="$PROJECT_DIR$/src/com/rns/dal/BMIDAL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rns/BMIMain.java" afterPath="$PROJECT_DIR$/src/com/rns/BMIMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rns/manager/BMIManager.java" afterPath="$PROJECT_DIR$/src/com/rns/manager/BMIManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="RNS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,16 +90,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BMIDAL.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BMIDAL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rns/dal/BMIDAL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.08838821" vertical-offset="561" max-vertical-offset="1139">
+            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1139">
               <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#586#587#0" expanded="true" />
                 <element signature="e#619#620#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.061594203" vertical-offset="0" max-vertical-offset="552">
+              <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/com/rns/manager/BMIManager.java" />
         <option value="$PROJECT_DIR$/src/com/rns/BMIMain.java" />
         <option value="$PROJECT_DIR$/src/com/rns/dal/BMIDAL.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -534,7 +542,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994652" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32222223" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32222223" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24705882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -729,13 +737,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rns/dal/BMIDAL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08838821" vertical-offset="561" max-vertical-offset="1139">
+        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1139">
           <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#586#587#0" expanded="true" />
             <element signature="e#619#620#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.061594203" vertical-offset="0" max-vertical-offset="552">
+          <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
+          <folding />
         </state>
       </provider>
     </entry>
