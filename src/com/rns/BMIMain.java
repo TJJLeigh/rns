@@ -9,7 +9,6 @@ import org.apache.log4j.PropertyConfigurator;
 import java.util.ArrayList;
 
 
-
 public class BMIMain {
 	
     private static String LOG_PROPERTIES_FILE = "conf/log4j.configuration";
@@ -18,11 +17,15 @@ public class BMIMain {
 		SetUp();
         BMIManager m = new BMIManager();
         ArrayList<Person> p = m.getPeople();
+        BMIDAL.getInstance().addUser("ausername", "apassword");
 
+        BMIDAL.getInstance().login("larry", "password");
+
+        BMIDAL.getInstance().login("ausername", "apassword");
+        BMIDAL.getInstance().stopConnection();
         for (Person l:p){
             System.out.println(l.getName() + "," + l.calculateBodyMassIndex());
         }
-        BMIDAL.getInstance().stopConnection();
     }
 	
     private static void SetUp (){

@@ -4,6 +4,7 @@ import com.rns.util.ApplicationProperty;
 
 import java.sql.*;
 import org.apache.log4j.Logger;
+import com.rns.util.PasswordHasher;
 
 public class BMIDAL {
     private static Logger logger = Logger.getLogger(BMIDAL.class);
@@ -57,5 +58,62 @@ public class BMIDAL {
                 e.printStackTrace();
             }
         return r;
+    }
+    public boolean login(String username, String password){
+        try {
+            PreparedStatement compareUsername = databaseConnection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            compareUsername.setString(1, username);
+            ResultSet saltfinder = compareUsername.executeQuery();
+            if(saltfinder.next()) {
+                String salt = saltfinder.getString("salt");
+                if (saltfinder.getString("password").equals(PasswordHasher.md5Hex(salt + password))) {
+                    logger.info("Login Successful");
+                    return true;
+                }
+            }
+            logger.info("Login Failed");
+            return false;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            logger.warn("SQL Failed");
+            return false;
+        }
+
+    }
+    public void addUser(String username, String pwd){
+        if (isUnique(username,"users")){
+            try {
+                logger.info("Username is unique, adding user to database");
+                String salt = PasswordHasher.generateSalt();
+                PreparedStatement newUser = databaseConnection.prepareStatement("INSERT INTO users (username, password, salt) VALUES(?,?,?)");
+                newUser.setString(1, username);
+                newUser.setString(2,PasswordHasher.md5Hex(salt+pwd) );
+                newUser.setString(3, salt);
+                newUser.executeUpdate();
+                logger.info("User added successfully to database");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            logger.warn("Username is not unique!");
+        }
+    }
+    public boolean isUnique(String entry, String table){
+        Statement st;
+        try {
+            st = databaseConnection.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT username FROM users");
+            while (resultSet.next()){
+                if (resultSet.getString("username").equals(entry))
+                    return false;
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        logger.warn("Query to check if entry is unique has failed");
+        return false;
     }
 }

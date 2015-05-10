@@ -23,46 +23,21 @@ import com.rns.util.NumericUtil;
 public class BMIManager {
 
 	private static Logger logger = Logger.getLogger(BMIManager.class);
-	
+	//This isn't used if strings are being read from a database. Deprecated?
 	private ArrayList<String[]> readStrings(){
 		ArrayList<String[]> strings = new ArrayList<String[]>();
 
 		logger.info("ENTER readStrings()");
-		if(ApplicationProperty.getInstance().GetBooleanProperty("input.database")){
-			ResultSet bmiRecords = BMIDAL.getInstance().readBMIRecords();
-			if (bmiRecords != null){
-				try {
-					while (bmiRecords.next()) {
-						String[] s = new String[4];
-						s[0] = bmiRecords.getString("fullName");
-						s[2] = bmiRecords.getString("weight");
-						s[1] = bmiRecords.getString("height");
-						s[3] = bmiRecords.getString("planet");
-						strings.add(s);
-					}
-				}catch (SQLException e){
-					e.printStackTrace();
-				}
-				logger.info("EXIT readStrings()");
-				return strings;
-			}
-			else{
-				logger.warn("Strings is empty");
-				return strings;
-			}
-		}
-		else {
+
 			String fileName = ApplicationProperty.getInstance().GetPropertyValue("input.fileName");
 			String filePath = ApplicationProperty.getInstance().GetPropertyValue("input.filePath");
 
 			BufferedReader inputFile = null;
 
 			try {
-				String line = "";
+				String line;
 
 				inputFile = new BufferedReader(new FileReader(filePath + "\\" + fileName));
-				if (inputFile != null) {
-
 					while ((line = inputFile.readLine()) != null) {
 
 						if (!NumericUtil.isEmptyOrNull(line)) {
@@ -70,8 +45,6 @@ public class BMIManager {
 
 						}
 					}
-
-				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
@@ -83,12 +56,26 @@ public class BMIManager {
 			}
 			logger.info("EXIT readStrings() ");
 			return strings;
-		}
+
 	}
 	public ArrayList<Person> getPeople(){
+
 		//ArrayList that is returned with the Person objects
 		ArrayList<Person> returnPeople = new ArrayList<Person>();
-
+		if (ApplicationProperty.getInstance().GetBooleanProperty("input.database"))
+		{
+			ResultSet bmiRecords = BMIDAL.getInstance().readBMIRecords();
+			try {
+				while (bmiRecords.next()){
+                returnPeople.add(new Person(bmiRecords.getString("fullName"),bmiRecords.getFloat("weight"),
+                                            bmiRecords.getFloat("height"),planetFromString(bmiRecords.getString("planet"))));
+                }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return returnPeople;
+		}
+		else{
 		//ArrayList of string arrays that are to be parsed into person objects
 		ArrayList<String[]> rawStrings = readStrings();
 
@@ -108,6 +95,7 @@ public class BMIManager {
 		}
 		//Returns the ArrayList of Persons
 		return returnPeople;
+		}
 	}
 	public Planet planetFromString(String planet){
 		if(Planet.values() != null) {

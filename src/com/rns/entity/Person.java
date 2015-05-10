@@ -10,15 +10,14 @@ public class Person {
 	public Person(){
 		
 	}
-
-	public Person(String name, float weight, float height){
+	public Person(String name, float weight, float height, Planet planet){
 		
 		_Name = name;
 		_Weight = weight;
 		_Height = height;
+		_Planet = planet;
 		
 	}
-
 	public void setHeight(float height){
 		_Height = height;
 	}
@@ -49,10 +48,7 @@ public class Person {
 
 	public double calculateBodyMassIndex(){
 		float gravity = _Planet.getGravity();
-		double bmi = ( _Weight/gravity ) / ( (_Height/100) * (_Height/100));
+		return ( _Weight/gravity ) / ( (_Height/100) * (_Height/100));
 
-		return bmi;
 	}
-
-	
 }
