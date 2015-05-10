@@ -1,9 +1,10 @@
 *.class
-
+*.docx
 # Package Files #
 *.jar
 *.war
 *.ear
 .settings
+
 /build
 /bin
