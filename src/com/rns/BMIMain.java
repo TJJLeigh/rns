@@ -17,15 +17,17 @@ public class BMIMain {
 		SetUp();
         BMIManager m = new BMIManager();
         ArrayList<Person> p = m.getPeople();
-        BMIDAL.getInstance().addUser("ausername", "apassword");
+        BMIDAL.getInstance().addUser("larry", "password");
 
         BMIDAL.getInstance().login("larry", "password");
 
         BMIDAL.getInstance().login("ausername", "apassword");
         BMIDAL.getInstance().stopConnection();
-        for (Person l:p){
-            System.out.println(l.getName() + "," + l.calculateBodyMassIndex());
-        }
+        if(m != null){
+            for (Person l:p){
+                System.out.println(l.getName() + "," + l.calculateBodyMassIndex());
+            }
+         }
     }
 	
     private static void SetUp (){

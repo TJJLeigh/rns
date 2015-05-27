@@ -8,6 +8,8 @@ import com.rns.util.PasswordHasher;
 
 public class BMIDAL {
     private static Logger logger = Logger.getLogger(BMIDAL.class);
+
+
     Connection databaseConnection;
     String connectionHost = ApplicationProperty.getInstance().GetPropertyValue("database.host");
     String databaseName = ApplicationProperty.getInstance().GetPropertyValue("database.schema");
@@ -46,19 +48,10 @@ public class BMIDAL {
             e.printStackTrace();
         }
     }
-    public ResultSet readBMIRecords(){
-        ResultSet r = null;
-            try {
-                logger.info("Reading BMI records");
-                Statement st = databaseConnection.createStatement();
-                r = st.executeQuery("SELECT * FROM bmi");
-            }
-            catch (SQLException e){
-                logger.warn("BMI record reading failed");
-                e.printStackTrace();
-            }
-        return r;
+    public Connection getDatabaseConnection() {
+        return databaseConnection;
     }
+
     public boolean login(String username, String password){
         try {
             PreparedStatement compareUsername = databaseConnection.prepareStatement("SELECT * FROM users WHERE username = ?");

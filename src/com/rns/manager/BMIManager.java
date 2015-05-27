@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.rns.dal.BMIDAL;
@@ -64,14 +65,18 @@ public class BMIManager {
 		ArrayList<Person> returnPeople = new ArrayList<Person>();
 		if (ApplicationProperty.getInstance().GetBooleanProperty("input.database"))
 		{
-			ResultSet bmiRecords = BMIDAL.getInstance().readBMIRecords();
+			ResultSet bmiRecords;
 			try {
+				logger.info("Reading BMI records");
+				Statement st = BMIDAL.getInstance().getDatabaseConnection().createStatement();
+				bmiRecords = st.executeQuery("SELECT * FROM bmi");
 				while (bmiRecords.next()){
                 returnPeople.add(new Person(bmiRecords.getString("fullName"),bmiRecords.getFloat("weight"),
                                             bmiRecords.getFloat("height"),planetFromString(bmiRecords.getString("planet"))));
                 }
 			} catch (SQLException e) {
 				e.printStackTrace();
+				logger.warn("BMI record reading failed");
 			}
 			return returnPeople;
 		}
